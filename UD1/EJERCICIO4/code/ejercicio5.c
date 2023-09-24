@@ -9,17 +9,29 @@ void main (){
     pid_t pid;
     int status;
 
-    // Bucle para todos esos hijos
-    for (size_t i=1;i>=4;i++){
-        if ((pid=fork())==-1){
-            exit(-1);
-        }else if ((pid=fork())==0){
-            printf("Soy el hijo %d, mi padre es %d",getpid(),getppid());
-            pid = fork();
+    // Primer Hijo
+    if ((pid=fork())==-1){
+        exit(-1);
+    }else if (pid==0){
+        printf("Soy el hijo %d, mi padre es %d \n",getpid(),getppid());
+
+        // Segundo Hijo
+        if (pid=fork()==0){
+            printf("Soy el hijo %d, mi padre es %d \n",getpid(),getppid());
+
+            // Tercer Hijo
+            if (pid=fork()==0){
+                printf("Soy el hijo %d, mi padre es %d \n",getpid(),getppid());
+            }else{
+                waitpid(pid,&status,0);    
+            }
+            
         }else{
             waitpid(pid,&status,0);
-            printf("Soy el padre %d, mi padre es %d",getpid(),getppid());
         }
+    }else{
+        waitpid(pid,&status,0);
+        printf("Soy el padre %d \n",getpid());
     }
     exit(0);
 }
