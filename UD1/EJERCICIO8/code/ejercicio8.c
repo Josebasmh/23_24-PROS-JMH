@@ -45,6 +45,8 @@ void main (){
         default:
             printf("\tEl HIJO envía un mensaje al NIETO.......\n");
             write(fd2[1],"Saludo del PADRE..\n",18);
+
+            // Espera a que el nieto responda, lee el mesnaje y escribe al padre
             waitpid(pid,&status,0);
             read(fd1[0],buffer,18);
             printf("\tEl HIJO recibe mensaje de su hijo: %s\n",buffer);
@@ -57,6 +59,8 @@ void main (){
     default:
         printf("El ABUELO envía un mensaje al HIJO......\n");
         write(fd1[1],"Saludo del ABUELO..\n",19);
+
+        // Espera a que el hijo le escriba y lee el mensaje
         waitpid(pid,&status,0);
         read(fd2[0],buffer,18);
         printf("El ABUELO recibe un mensaje del HIJO: %s\n",buffer);
