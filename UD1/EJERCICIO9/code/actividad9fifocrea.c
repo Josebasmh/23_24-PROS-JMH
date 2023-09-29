@@ -22,7 +22,7 @@ int main (void)
 	while (1) {
 		fp = open ("FIFO2", 0);
 		bytesleidos = read(fp, buffer, 1);
-		printf("Obteniendo información...\n"); 
+		printf("Obteniendo información..."); 
 		while (bytesleidos != 0) {
 			printf("%s", buffer);
 			bytesleidos = read (fp, buffer, 1); // leo otro byte
