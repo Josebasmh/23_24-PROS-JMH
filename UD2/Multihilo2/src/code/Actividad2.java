@@ -11,7 +11,6 @@ public class Actividad2 extends Thread{
 		for (int i=0;i<20;i++) {
 			System.out.println("Hilo " + n);
 		}
-		
 	}
 	public static void main(String[] args) {
 		Actividad2 act21= new Actividad2(1);
