@@ -20,7 +20,7 @@ class Hilo extends Thread {
 			System.out.println("Hilo " + numero + " - " + dtf.format(LocalDateTime.now()));
 			try {
 				// espera 1 segundo
-				sleep(100);
+				sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
