@@ -8,7 +8,7 @@
 void main (){
     pid_t pid;
     int status;
-    int n=3; //Numero de procesos
+    int n=3; //Numero de procesos del programa
     
     for (int i=0;i<n;i++){
         if ((pid=fork()) == -1){
