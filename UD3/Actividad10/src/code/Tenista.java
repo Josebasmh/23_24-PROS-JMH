@@ -1,6 +1,8 @@
 package code;
 
-public class Tenista {
+import java.io.Serializable;
+
+public class Tenista implements Serializable{
 
 	private String apellido;
 	private Integer altura;
